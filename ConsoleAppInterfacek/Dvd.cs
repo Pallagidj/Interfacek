@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleAppInterfacek
 {
-    class Dvd
+    class Dvd : IKolcsonozheto , IComparable<Dvd>
     {
         private string cim;
         private int hossz; //perc
@@ -41,6 +41,48 @@ namespace ConsoleAppInterfacek
             {
                 hossz = value;
             }
+        }
+
+        public int CompareTo(Dvd other)
+        {
+           // return this.cim.CompareTo(other.cim); //csak egy rendezési feltételnél
+            //return this.hossz - other.hossz; //csak számoknál
+            
+            if (this.hossz > other.hossz)
+            {
+                
+                return 1;
+            }
+            else if(this.hossz < other.hossz)
+            {
+                return -1;
+            }
+            else
+            {
+                if (this.cim.CompareTo(other.cim) > 0)
+                {
+                    return 1;
+                }
+                else if (this.cim.CompareTo(other.cim) < 0)
+                {
+                    return -1;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            
+        }
+
+        public int KolcsonzesiIdo()
+        {
+            return 7;
+        }
+
+        public string MegjelenitendoNev()
+        {
+            return cim;
         }
 
         public double TeljesHosszOra()

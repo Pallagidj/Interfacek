@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleAppInterfacek
 {
-    class Konyv
+    class Konyv : IKolcsonozheto
     {
         string cim;
         string szerzo;

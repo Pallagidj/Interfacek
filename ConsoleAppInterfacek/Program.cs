@@ -11,40 +11,37 @@ namespace ConsoleAppInterfacek
        
         static void Main(string[] args)
         {
-            Dvd d1 = new Dvd("Star Wars IV", 180);
-            Dvd d2 = new Dvd("Star Wars V", 230);
-            Dvd d3 = new Dvd("Star Wars VI", 210);
+            Dvd d1 = new Dvd("Star Wars BIV", 180);
+            Dvd d2 = new Dvd("Star Wars CV", 230);
+            Dvd d3 = new Dvd("Star Wars AII", 210);
+            Dvd d4 = new Dvd("Nem sztár vársz",230);
             
-            var katalogus = new List<object>();
+            var katalogus = new List<IKolcsonozheto>();
             katalogus.Add(d1);
             katalogus.Add(d2);
             katalogus.Add(d3);
             katalogus.Add(new Konyv("Harry Potter és a Bölcsek köve", "J.K. Rowling", "963-8386-77-0"));
             katalogus.Add(new Ujsag("Blikk",2016,3));
             
-            
+            //Console.WriteLine(katalogus[0].MegjelenitendoNev() + ", " + katalogus[0].KolcsonzesiIdo());
 
             var dvdk = new List<Dvd>();
 
             dvdk.Add(d1);
             dvdk.Add(d2);
             dvdk.Add(d3);
+            dvdk.Add(d4);
 
             foreach (var item in dvdk)
             {
-                Console.WriteLine(item.Cim);
+                Console.WriteLine(item.Cim + " " +item.TeljesHosszOra());
             }
-
-            Dvd d4 = d2;
-            Console.WriteLine(d4.Cim);
-
-            d2.Cim = "Star Wars II";
-
-            Console.WriteLine(d4.Cim);
+            dvdk.Sort();
+            Console.WriteLine();
 
             foreach (var item in dvdk)
             {
-                Console.WriteLine(item.Cim);
+                Console.WriteLine(item.Cim + " " + item.TeljesHosszOra());
             }
 
             Console.ReadLine();
